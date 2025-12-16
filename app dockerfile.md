@@ -2,7 +2,7 @@
 
 ---
 
-## ✅ 最简可用 Dockerfile（推荐）
+##  最简可用 Dockerfile（推荐）
 
 ```dockerfile
 # 1️⃣ 选择轻量级 Python 基础镜像
@@ -26,7 +26,7 @@ CMD ["python", "app.py"]
 
 ---
 
-## 📂 目录结构
+##  目录结构
 
 ```text
 .
@@ -61,7 +61,7 @@ curl http://localhost:8000/health
 
 ---
 
-## 🔍 Dockerfile 逐行解读（运维视角）
+##  Dockerfile 逐行解读（运维视角）
 
 ### `FROM python:3.11-slim`
 
@@ -114,13 +114,13 @@ curl http://localhost:8000/health
 
 ## 🧱 CI / K8s 常见改造（你迟早会用到）
 
-### 🔹 CI 里后台跑
+###  CI 里后台跑
 
 ```bash
 docker run -d -p 8000:8000 flask-ci-demo
 ```
 
-### 🔹 K8s 健康检查
+###  K8s 健康检查
 
 ```yaml
 livenessProbe:
@@ -131,7 +131,7 @@ livenessProbe:
 
 ---
 
-## ⚠️ 一句重要提醒
+##  一句重要提醒
 
 > `app.run()` 只适合 **CI / 测试 / 学习**
 > 正式生产建议：
@@ -142,7 +142,7 @@ gunicorn -b 0.0.0.0:8000 app:app
 
 ---
 
-## 🎯 总结
+##  总结
 
 这套组合：
 
@@ -150,7 +150,7 @@ gunicorn -b 0.0.0.0:8000 app:app
 * 一个 Dockerfile
 * 一个 `/health` 接口
 
-👉 **已经是 CI / 容器 / K8s 的“黄金三件套”**
+ **已经是 CI / 容器 / K8s 的“黄金三件套”**
 
 下一步你可以选一条路，我直接给你落地示例：
 1️⃣ GitLab CI 构建 + curl 验证
