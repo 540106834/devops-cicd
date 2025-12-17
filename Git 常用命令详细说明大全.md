@@ -1,7 +1,59 @@
 下面给你一份**Git 常用命令详细说明大全**，我会按「真实工作流」来讲，而不是命令说明书式的堆砌。把 Git 想成一条流水线，代码在不同“站台”来回切换 🧭
 
 ---
+```
+[root@ip-100-100-3-27 python-ci]# git init 
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+Initialized empty Git repository in /root/python-ci/.git/
+[root@ip-100-100-3-27 python-ci]# git branch -M main
+[root@ip-100-100-3-27 python-ci]# git remote add origin https://gitlab.novedevs.com/novel/cicd-test.git
+[root@ip-100-100-3-27 python-ci]# git add .
+[root@ip-100-100-3-27 python-ci]# git commit -m "init project"
+[main (root-commit) 72a7e58] init project
+ Committer: root <root@ip-100-100-3-27.ap-northeast-1.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
 
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 51 insertions(+)
+ create mode 100644 .gitlab-ci.yml
+ create mode 100644 Dockerfile
+ create mode 100644 app.py
+ create mode 100644 requirements.txt
+[root@ip-100-100-3-27 python-ci]# git push -u origin main
+Username for 'https://gitlab.novedevs.com': novel
+Password for 'https://novel@gitlab.novedevs.com': 
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 1.04 KiB | 1.04 MiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: To create a merge request for main, visit:
+remote:   https://gitlab.novedevs.com/novel/cicd-test/-/merge_requests/new?merge_request%5Bsource_branch%5D=main
+remote: 
+To https://gitlab.novedevs.com/novel/cicd-test.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+```
 ## 一、Git 三大核心区域（先立世界观）
 
 在讲命令前，先认清 Git 的三层结构：
